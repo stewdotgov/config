@@ -1,0 +1,54 @@
+# Copied from: 
+# http://www.softpanorama.org/Utilities/Screen/screenrc_examples.shtml
+
+# The simplest ~/.screenrc  can have just a half-dozen lines like:
+
+shell -${SHELL}
+caption always "%n(%t) : %C"
+defscrollback 30000
+startup_message off
+hardstatus on
+hardstatus alwayslastline "%{rk}%H %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+logfile $HOME/var/log/screen/%Y%m%d-%n.log
+deflog on
+altscreen on
+
+# After that basic set-up the simplest way to enhance your ~/.screenrc is to add bind commands, for example
+
+bind ' ' windowlist -b 
+
+# This screenrc  command would bind the space key to the command that displays a list of windows (so that the command usually invoked by C-a " would also be available as C-a space which is much more convenient),
+# 
+# shell -${SHELL} 
+# caption always "%n(%t) : %C"
+# 
+# Another useful step is to make more user-friendly caption. A better variant of caption would be
+
+caption always "%3n %t%? @%u%?%? [%h]%?%=%c"
+
+# Slightly more complex would be:
+# 
+# caption always "%{= kc}%H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c"
+# 
+# The value of title can be changed by command:
+# 
+# C-a A
+# 
+# You can specify in your screenrc  file arbitrary number of initial screens, for example
+# 
+# screen bash
+# title "this is my first screen"
+# screen bash
+# title " this is a screen reserved for editor"
+# 
+# You can combine the  command title with the command screen in one line using -t  key in screen command:
+# 
+# screen -ln -t "root shell" -h 1000 9 su
+# 
+# This command creates a window with title `root shell' in slot #9, with a superuser shell and a scrollback buffer of 1000 lines.
+# 
+# Autoindent mode in vi.
+# 
+# #register [ "\033:se noai\015a"
+# ##register ] "\033:se ai\015a"
+# ##bind ^] paste [.]

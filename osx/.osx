@@ -1,0 +1,9 @@
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
+
+
+export BYOBU_PREFIX=$(brew --prefix)
+
+
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;

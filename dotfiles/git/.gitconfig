@@ -1,0 +1,42 @@
+[core]
+    logallrefupdates = true
+    bare = false
+    repositoryformatversion = 0 
+    filemode = false
+	excludesfile = ~/.gitignore_global
+    editor = vim
+[color "diff"]
+    frag = magenta bold
+    new = green bold
+    meta = yellow bold
+    old = red bold
+    whitespace = red reverse
+[color]
+    ui = auto
+[color "status"]
+    untracked = red bold
+    added = green
+    changed = yellow
+[user]
+    name = Brian Stewart
+    email = bstewart@usnews.com
+[color "branch"]
+    current = green
+    remote = red 
+    local = yellow
+[alias]
+    st = status
+    br = branch
+    ci = commit
+    last = log -1 HEAD
+    lp = log --pretty=oneline
+    cb = checkout -b
+    ch = checkout
+    bro = branch -r
+    prg = pull --rebase origin
+    origin = remote show origin
+    pom = push origin master:master
+[push]
+	default = simple
+[merge]
+	tool = vimdiff

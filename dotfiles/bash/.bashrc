@@ -29,7 +29,7 @@ fi
 # * ~/.path can be used to extend $PATH.
 # * ~/.extra can be used for other settings you don’t want to commit.
 #for f in "$HOME/."{path,bash_prompt,exports,aliases,functions,extra}; do
-for f in "$HOME/."{path,bash_prompt,aliases,extra,usnews}; do
+for f in "$HOME/"{.path,.bash_prompt,.aliases,.extra,.usnews}; do
 	[ -r "$f" ] && [ -f "$f" ] && source "$f";
 done;
 unset f;

@@ -1364,7 +1364,7 @@
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>2 10 48</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/config/osx/iterm/usn</string>
+	<string>~/config/non-dotfiles/osx/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -1403,6 +1403,8 @@
 	<string>571 235 425 103 0 0 1280 777 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>356 314 606 456 0 0 1280 777 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>395 285 796 473 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>290 7 970 702 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -5049,6 +5051,10 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>BA4E35B9-066B-4A2D-B62E-21263F734DC8</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -5113,7 +5119,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/stew/config/osx/iterm/usn</string>
+	<string>~/config/non-dotfiles/osx/iterm</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -5133,7 +5139,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-22T17:14:59Z</date>
+	<date>2017-02-26T17:11:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

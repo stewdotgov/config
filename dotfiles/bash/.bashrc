@@ -28,8 +28,7 @@ fi
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend $PATH.
 # * ~/.extra can be used for other settings you don’t want to commit.
-#for f in "$HOME/."{path,bash_prompt,exports,aliases,functions,extra}; do
-for f in "$HOME/"{.path,.bash_prompt,.aliases,.extra,.usnews}; do
+for f in "$HOME/"{.path,.aliases,.extra,.usnews}; do
 	[ -r "$f" ] && [ -f "$f" ] && source "$f";
 done;
 unset f;
@@ -149,5 +148,24 @@ export WORKON_HOME="${HOME}/.envs"
 mkdir -p $WORKON_HOME
 source "$VIRTUALENVWRAPPER"
 
-# Python won't write .pyc files:
-export PYTHONDONTWRITEBYTECODE=1
+# Run bash-git-prompt (installed via Homebrew)
+if [ -f /usr/local/share/gitprompt.sh ]; then
+    # Set config variables first
+
+    # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+
+    # GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
+    # GIT_PROMPT_SHOW_UNTRACKED_FILES=all # can be no, normal or all; determines counting of untracked files
+
+    # GIT_PROMPT_STATUS_COMMAND=gitstatus_pre-1.7.10.sh # uncomment to support Git older than 1.7.10
+
+    # GIT_PROMPT_START=...    # uncomment for custom prompt start sequence
+    # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+
+    # as last entry source the gitprompt script
+    # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
+    # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
+    GIT_PROMPT_ONLY_IN_REPO=0
+    GIT_PROMPT_THEME=Default
+    . /usr/local/share/gitprompt.sh
+fi

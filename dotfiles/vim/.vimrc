@@ -30,6 +30,7 @@ Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
 Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
 Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
                                             " .vimrc by default)
+Plugin 'elzr/vim-json'                      " JSON syntax & highlighting
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

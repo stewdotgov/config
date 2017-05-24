@@ -148,6 +148,11 @@ export WORKON_HOME="${HOME}/.envs"
 mkdir -p $WORKON_HOME
 source "$VIRTUALENVWRAPPER"
 
+# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+if [ -f "$HOME/.git-completion.bash" ] ; then
+    source "$HOME/.git-completion.bash"
+fi
+
 # Run bash-git-prompt (installed via Homebrew)
 if [ -f /usr/local/share/gitprompt.sh ]; then
     # Set config variables first
@@ -168,4 +173,9 @@ if [ -f /usr/local/share/gitprompt.sh ]; then
     GIT_PROMPT_ONLY_IN_REPO=0
     GIT_PROMPT_THEME=Default
     . /usr/local/share/gitprompt.sh
+fi
+
+# Exercism
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+    . ~/.config/exercism/exercism_completion.bash
 fi

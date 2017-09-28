@@ -24,6 +24,7 @@ Plugin 'altercation/vim-colors-solarized'   " Eye-friendly colors
 Plugin 'scrooloose/nerdtree'                " Fancy file tree explorer
 Plugin 'hynek/vim-python-pep8-indent'       " PEP8-compliant autoindent
 Plugin 'scrooloose/syntastic'               " Syntax checking
+Plugin 'FooSoft/vim-argwrap'                " Toggle argument wrapping
 Plugin 'tpope/vim-repeat'                   " Make . work with plugin maps
 Plugin 'tpope/vim-surround'                 " Easily edit parens, XML tags, etc
 Plugin 'tpope/vim-fugitive'                 " Use git from within Vim 
@@ -86,7 +87,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_python_exec = 'python'
+let g:syntastic_python_pylint_exe = 'python -m flake8'
 
 " ============
 " Vim settings
@@ -159,19 +162,23 @@ set directory=~/tmp/vim//,~/tmp//,.     " write swapfiles here
 
 " -------------
 " Function Keys
+" -------------
 "nnoremap <F1> "toggle overlength highlighting
 nnoremap <F2> :set number!<CR>
 nnoremap <F3> :set invpaste paste?<CR>
-nnoremap <F4> :call FoldArgumentsOntoMultipleLines()<CR>
 nnoremap <F5> :call SyntasticToggleMode()<CR>
-nnoremap <silent> <F6> :NERDTreeToggle<CR>
+nnoremap <F6> :NERDTreeToggle<CR>
 nnoremap <F7> :call ToggleBackground()<CR>
 "nnoremap <F8>
 "nnoremap <F9>
 "nnoremap <F10>
 nnoremap <F12> :call ToggleMouse()<CR>
 
-inoremap <F4> <Esc>:call FoldArgumentsOntoMultipleLines()<CR>a
+" ---------------------------
+" Toggle argument wrap/unwrap
+" ---------------------------
+nnoremap <leader>f :ArgWrap<CR>
+inoremap <leader>f <Esc>:ArgWrap<CR>a
 
 " ------
 " Splits
@@ -204,18 +211,6 @@ endfunction
 " toggle paste/nopaste
 set pastetoggle=<F3>
 set showmode
-" The following maps F4 in normal and insert mode to doing a search and
-" replace on the current line which converts all commas (with 0 or more
-" spaces after each) into commas with a carriage return after each, then
-" selects the whole group and indents it using the Vim builtin =.
-" 
-" A known shortcoming of this solution is for lines that include multiple
-" template parameters (it breaks on their commas as well instead of just
-" the commas of the normal parameters).
-function FoldArgumentsOntoMultipleLines()
-    substitute@,\s*@,\r@ge
-    normal v``="
-endfunction
 
 " ---------
 " Searching

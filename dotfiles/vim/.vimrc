@@ -197,7 +197,8 @@ nnoremap - :exe "resize -2"<cr>
 " Editing
 " -------
 " add a new line without insert mode
-nnoremap <enter> o<esc>k
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
 " toggle mouse
 function! ToggleMouse()
   if &mouse == 'a'

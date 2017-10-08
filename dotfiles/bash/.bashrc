@@ -18,17 +18,10 @@
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
-
-# Add ~/bin to the $PATH, if it exists and if
-# there is not a ~/.path file
-if [ ! -f "$HOME/.path" ] && [ -d "$HOME/bin" ] ; then
-    PATH="$PATH:$HOME/bin"
-fi
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend $PATH.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for f in "$HOME/"{.path,.aliases,.extra,.usnews}; do
+for f in "$HOME/"{.aliases,.usnews}; do
 	[ -r "$f" ] && [ -f "$f" ] && source "$f";
 done;
 unset f;

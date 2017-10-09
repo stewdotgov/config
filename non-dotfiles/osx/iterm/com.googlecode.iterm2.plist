@@ -1331,6 +1331,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -1406,9 +1408,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>395 285 796 473 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>290 7 970 702 0 0 1280 777 </string>
+	<string>290 4 970 702 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>290 5 970 702 0 0 1280 777 </string>
+	<string>290 7 970 702 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>97 4 970 702 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -5075,6 +5077,8 @@
 	<false/>
 	<key>PasteFromClipboard</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -5139,7 +5143,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-26T17:11:09Z</date>
+	<date>2017-10-08T18:20:39Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -5179,6 +5183,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.14</string>
+	<string>3.1.beta.10</string>
 </dict>
 </plist>

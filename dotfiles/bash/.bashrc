@@ -135,16 +135,14 @@ for key in "${HOME}/.ssh/id_rsa."{usn,github.primordialstew}; do
 done;
 unset key;
 
-
+export VIRTUALENVWRAPPER_PYTHON="python3"
 export VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
 export WORKON_HOME="${HOME}/.envs"
 mkdir -p $WORKON_HOME
 source "$VIRTUALENVWRAPPER"
 
 # https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
-if [ -f "$HOME/.git-completion.bash" ] ; then
-    source "$HOME/.git-completion.bash"
-fi
+source "$HOME/.git-completion.bash"
 
 # source bash-git-prompt from a Git repository
 # https://github.com/magicmonty/bash-git-prompt

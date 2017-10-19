@@ -36,7 +36,5 @@
     prg = pull --rebase origin
     origin = remote show origin
     pom = push origin master:master
-[push]
-	default = simple
 [merge]
 	tool = vimdiff

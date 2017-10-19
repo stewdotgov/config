@@ -1,6 +1,8 @@
 coreutils
 gnupg
+go
 jq
+mosh
 postgresql
 python
 python3

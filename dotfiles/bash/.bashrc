@@ -135,8 +135,11 @@ for key in "${HOME}/.ssh/id_rsa."{usn,github.primordialstew}; do
 done;
 unset key;
 
-export VIRTUALENVWRAPPER_PYTHON="python3"
+# export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+export VIRTUALENV_PYTHON="/usr/local/bin/python3"
 export VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
+export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv-3.5"
 export WORKON_HOME="${HOME}/.envs"
 mkdir -p $WORKON_HOME
 source "$VIRTUALENVWRAPPER"

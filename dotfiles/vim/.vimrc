@@ -18,6 +18,9 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" If Vundle is not yet installed on this system, install it:
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'                  " Manage vim plugins
 Plugin 'altercation/vim-colors-solarized'   " Eye-friendly colors

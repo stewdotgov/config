@@ -18,14 +18,6 @@
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend $PATH.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for f in "$HOME/"{.aliases,.usnews}; do
-	[ -r "$f" ] && [ -f "$f" ] && source "$f";
-done;
-unset f;
-
 # Enable gnome terminal to understand UTF-8
 export LANG=en_US.UTF-8
 
@@ -169,3 +161,11 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Additionally, you can access their man pages with normal names if you add
 # the "gnuman" directory to your MANPATH from your bashrc as well:
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend $PATH.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for f in "$HOME/"{.aliases,.usnews}; do
+	[ -r "$f" ] && [ -f "$f" ] && source "$f";
+done;
+unset f;

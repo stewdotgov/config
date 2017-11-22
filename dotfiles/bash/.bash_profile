@@ -24,6 +24,6 @@
 
 # execute ~/.bashrc, containing my interactive,
 # non-login shell configuration
-if [ -f "$HOME/.bashrc" ] ; then
-    source "$HOME/.bashrc"
+if [ -n "$BASH_VERSION" ] && [ -f $HOME/.bashrc ] ; then
+    source $HOME/.bashrc
 fi

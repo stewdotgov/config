@@ -84,3 +84,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Use vi mode with IPython
+alias ipython="ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.editor=vim --TerminalInteractiveShell.extra_open_editor_shortcuts=True"

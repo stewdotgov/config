@@ -261,3 +261,4 @@ endfunction
 " -------------
 " Special Cases
 " -------------
+set expandtab       " insert spaces when hitting TABs

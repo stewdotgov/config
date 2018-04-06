@@ -18,6 +18,15 @@
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
+# For Python Cookiecutter
+export PATH=$HOME/.local/bin:$PATH
+
+# Load the shell dotfiles, and then some:
+for f in "$HOME/"{.aliases,.usnews}; do
+	[ -r "$f" ] && [ -f "$f" ] && source "$f";
+done;
+unset f;
+
 # Enable gnome terminal to understand UTF-8
 export LANG=en_US.UTF-8
 
@@ -128,10 +137,14 @@ done;
 unset key;
 
 # export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
-export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
-export VIRTUALENV_PYTHON="/usr/local/bin/python3"
+if [ -f /usr/local/bin/python3 ]; then
+    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+    export VIRTUALENV_PYTHON="/usr/local/bin/python3"
+    export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv-3.5"
+fi
 export VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
-export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv-3.5"
+
+
 export WORKON_HOME="${HOME}/.envs"
 mkdir -p $WORKON_HOME
 source "$VIRTUALENVWRAPPER"

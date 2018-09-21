@@ -28,9 +28,11 @@ Plugin 'scrooloose/nerdtree'                " Fancy file tree explorer
 Plugin 'hynek/vim-python-pep8-indent'       " PEP8-compliant autoindent
 Plugin 'scrooloose/syntastic'               " Syntax checking
 Plugin 'FooSoft/vim-argwrap'                " Toggle argument wrapping
+Plugin 'vim-airline/vim-airline'            " Provide a status line
+Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
 Plugin 'tpope/vim-repeat'                   " Make . work with plugin maps
 Plugin 'tpope/vim-surround'                 " Easily edit parens, XML tags, etc
-Plugin 'tpope/vim-fugitive'                 " Use git from within Vim 
+Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
 Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
 Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
                                             " .vimrc by default)
@@ -139,6 +141,9 @@ set background=dark
 "colorscheme solarized
 colorscheme desert
 
+" set status line theme:
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 " ------------
 " Command mode
@@ -186,10 +191,10 @@ inoremap <leader>f <Esc>:ArgWrap<CR>a
 " ------
 " Splits
 " ------
-" easier split (pane) navigation 
+" easier split (pane) navigation
 " use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR> 
-nmap <silent> <c-j> :wincmd j<CR> 
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 "resize split windows

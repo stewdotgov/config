@@ -320,10 +320,10 @@ c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 c.TerminalInteractiveShell.editing_mode = 'vi'
 
 # Set the editor used by IPython (default to $EDITOR/vi/notepad).
-# c.TerminalInteractiveShell.editor = u'vim'
+c.TerminalInteractiveShell.editor = u'vim'
 
 # Highlight matching brackets .
-# c.TerminalInteractiveShell.highlight_matching_brackets = True
+c.TerminalInteractiveShell.highlight_matching_brackets = True
 
 # The name of a Pygments style to use for syntax highlighting:  manni, igor,
 # lovelace, xcode, vim, autumn, vs, rrt, native, perldoc, borland, tango, emacs,

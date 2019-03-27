@@ -24,19 +24,20 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'                  " Manage vim plugins
 Plugin 'altercation/vim-colors-solarized'   " Eye-friendly colors
-Plugin 'scrooloose/nerdtree'                " Fancy file tree explorer
-Plugin 'hynek/vim-python-pep8-indent'       " PEP8-compliant autoindent
-Plugin 'scrooloose/syntastic'               " Syntax checking
+Plugin 'editorconfig/editorconfig-vim'      " Support .editorconfig files
+Plugin 'elzr/vim-json'                      " JSON syntax & highlighting
 Plugin 'FooSoft/vim-argwrap'                " Toggle argument wrapping
-Plugin 'vim-airline/vim-airline'            " Provide a status line
-Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
+Plugin 'hynek/vim-python-pep8-indent'       " PEP8-compliant autoindent
+Plugin 'scrooloose/nerdtree'                " Fancy file tree explorer
+Plugin 'scrooloose/syntastic'               " Syntax checking
 Plugin 'tpope/vim-repeat'                   " Make . work with plugin maps
 Plugin 'tpope/vim-surround'                 " Easily edit parens, XML tags, etc
 Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
 Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
 Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
                                             " .vimrc by default)
-Plugin 'elzr/vim-json'                      " JSON syntax & highlighting
+Plugin 'vim-airline/vim-airline'            " Provide a status line
+Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

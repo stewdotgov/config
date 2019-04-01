@@ -18,7 +18,7 @@
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
-# For Python Cookiecutter
+# Add ~/.local/bin to PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # Load the shell dotfiles, and then some:

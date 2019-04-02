@@ -1,7 +1,6 @@
 # Repo-specific ignores
 # ---------------------
-.ipython/profile_default/history.sqlite
-
+dotfiles/ipython/.ipython/profile_default/history.sqlite
 
 # Generic ignores
 # ---------------

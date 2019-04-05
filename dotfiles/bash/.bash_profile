@@ -1,3 +1,5 @@
+# shellcheck disable=SC1090
+
 # .bash_profile
 #
 # This file is executed for login shells, while .bashrc is executed for
@@ -26,4 +28,10 @@
 # non-login shell configuration
 if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ] ; then
     source "$HOME/.bashrc"
+fi
+
+
+# Initialize pyenv, see: https://github.com/pyenv/pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi

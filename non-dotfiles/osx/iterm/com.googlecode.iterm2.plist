@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AboutToPasteTabsWithCancel</key>
+	<true/>
+	<key>AboutToPasteTabsWithCancel_selection</key>
+	<integer>2</integer>
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
@@ -1416,9 +1420,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>395 285 796 473 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>290 4 970 702 0 0 1280 800 </string>
+	<string>290 9 970 702 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>290 7 970 702 0 0 1280 777 </string>
+	<string>290 9 970 702 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>97 4 970 702 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -5057,6 +5061,8 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -5151,7 +5157,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-28T23:02:32Z</date>
+	<date>2019-04-03T12:39:05Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -5191,6 +5197,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.1.5.beta.2</string>
+	<string>3.2.8beta1</string>
 </dict>
 </plist>

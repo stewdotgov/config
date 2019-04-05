@@ -1,5 +1,7 @@
 # .bashrc
 #
+# shellcheck disable=SC1090
+#
 # This file is executed for interactive, non-login shells, while 
 # .bash_profile is executed for login shells.
 #
@@ -40,10 +42,10 @@ export EDITOR="$VISUAL"
 # Ensure that a personal tmp/vim/ dir exists; my Vim configuration will
 # use this dir for swap and backup files, but only if it exists.
 if [ ! -d "$HOME/tmp" ] ; then
-    mkdir $HOME/tmp
-    mkdir $HOME/tmp/vim
+    mkdir "$HOME/tmp"
+    mkdir "$HOME/tmp/vim"
 elif [ ! -d "$HOME/tmp/vim/" ] ; then
-    mkdir $HOME/tmp/vim
+    mkdir "$HOME/tmp/vim"
 fi
 
 # Set TMOUT to null; this avoids 'inactive' screen sessions

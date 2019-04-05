@@ -187,3 +187,13 @@ for f in "$HOME/"{.aliases,.usnews}; do
 done;
 unset f;
 
+
+# pyenv fails with:
+#   zipimport.ZipImportError: can't decompress data; zlib not available
+# So I brew installed zlib. Brew says this:
+# For compilers to find zlib you may need to set:
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+
+## For pkg-config to find zlib you may need to set:
+#export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"

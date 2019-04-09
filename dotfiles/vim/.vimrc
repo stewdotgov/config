@@ -79,6 +79,7 @@ filetype plugin indent on    " required
 let NERDTreeIgnore=['\.pyc$']   " don't show these files in NERDTree
 " toggle NERDTree explorer
 nnoremap <silent> <c-6> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=20
 
 " ---------
 " Syntastic

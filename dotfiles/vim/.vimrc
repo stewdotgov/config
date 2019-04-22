@@ -83,7 +83,7 @@ filetype plugin indent on    " required
 let NERDTreeIgnore=['\.pyc$']   " don't show these files in NERDTree
 " toggle NERDTree explorer
 nnoremap <silent> <c-6> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=17
 
 " ---------
 " Syntastic
@@ -116,14 +116,17 @@ set fileformat=unix " use \n line endings
 " Indents & wrapping
 " ------------------
 set textwidth=79    " lines longer than 79 columns will be broken
-"set textwidth=0     "Disable text wrapping
+"set textwidth=0     " Disable text wrapping
 set expandtab       " insert spaces when hitting TABs
-set autoindent      " align the new line indent with the previous line
-"set smartindent     "Try to guess when indenting is needed
+"set autoindent      " align the new line indent with the previous line
+"set smartindent     " Try to guess when indenting is needed
 set tabstop=4       " a hard TAB displays as 4 columns
 set softtabstop=4   " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set shiftwidth=4    " operation >> indents 4 columns; << unindents 4 columns
 set shiftround      " round indent to multiple of 'shiftwidth'
+
+" Use 2 spaces for indentation in yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " ------------
 " Code hygeine

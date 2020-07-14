@@ -1,6 +1,13 @@
 # Ignore personal .ini
 stewartb.ini
 
+# Ignore pyenv artifact
+.python-version
+
+# Ignore virtual environments
+venv
+virtual_env
+
 # macOS .gitignore_gitignore from GitHub:
 # https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 

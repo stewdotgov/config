@@ -1,5 +1,6 @@
 # Ignore personal .ini
 stewartb.ini
+sand34.ini
 
 # Ignore pyenv artifact
 .python-version

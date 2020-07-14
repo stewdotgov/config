@@ -10,13 +10,14 @@ caption splitonly
 defscrollback 30000
 startup_message off
 hardstatus on
-hardstatus alwayslastline "%{rk}%H %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
-hardstatus alwayslastline "%{yk}%H %{gk}%M%d %{bk}%?%-Lw%?%{mk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
-hardstatus alwayslastline "%{yk}%H %{mk}%Y-%m-%d %c %{bk}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
-hardstatus alwayslastline "%{bk}%H %{mk}%Y-%m-%d %c %{ck}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
-hardstatus alwayslastline "%{gk}%H %{mk}%Y-%m-%d %c %{ck}%?%-Lw%?%{bk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
-hardstatus alwayslastline "%{bk}%H %{mk}%m-%d %c %{ck}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
+#hardstatus alwayslastline "%{rk}%H %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+#hardstatus alwayslastline "%{yk}%H %{gk}%M%d %{bk}%?%-Lw%?%{mk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
+#hardstatus alwayslastline "%{yk}%H %{mk}%Y-%m-%d %c %{bk}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
+#hardstatus alwayslastline "%{bk}%H %{mk}%Y-%m-%d %c %{ck}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
+#hardstatus alwayslastline "%{gk}%H %{mk}%Y-%m-%d %c %{ck}%?%-Lw%?%{bk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
+#hardstatus alwayslastline "%{bk}%H %{mk}%m-%d %c %{ck}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
 hardstatus alwayslastline "%{bk}%H %{mk}%M %d, %c %{ck}%?%-Lw%?%{gk}%n*%f %t%?(%u)%?%{ck}%?%+Lw%?"
+
 logfile $HOME/var/log/screen/%Y%m%d-%n.log
 deflog on
 altscreen on

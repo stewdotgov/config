@@ -38,8 +38,11 @@ Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
 Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
 Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
                                             " .vimrc by default)
+Plugin 'dracula/vim'
+", { 'name': 'dracula' } " Dracula theme
 Plugin 'vim-airline/vim-airline'            " Provide a status line
 Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
+
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -144,13 +147,13 @@ match BadWhitespace /\s\+$/ " trailing whitespace
 " set colorscheme. See $VIMRUNTIME/colors for the standard list.
 "set guifont=Monospace\ 18
 "set background=light
-set background=dark
+"set background=dark
 "colorscheme solarized
-colorscheme desert
+"colorscheme desert
 
 " set status line theme:
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+let g:airline_theme='dracula'
+"let g:airline_solarized_bg='dark'
 
 " ------------
 " Command mode
@@ -274,3 +277,4 @@ endfunction
 " Special Cases
 " -------------
 set expandtab       " insert spaces when hitting TABs
+set laststatus=0

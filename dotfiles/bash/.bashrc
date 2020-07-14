@@ -190,12 +190,25 @@ done;
 unset f;
 
 
-# pyenv fails with:
+# Add pyenv to PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# [on Mac OS] pyenv fails with:
 #   zipimport.ZipImportError: can't decompress data; zlib not available
 # So I brew installed zlib. Brew says this:
 # For compilers to find zlib you may need to set:
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
-
 ## For pkg-config to find zlib you may need to set:
 #export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+
+
+# Initialize pyenv, see: https://github.com/pyenv/pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

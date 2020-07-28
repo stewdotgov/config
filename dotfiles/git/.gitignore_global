@@ -2,6 +2,9 @@
 stewartb.ini
 sand34.ini
 
+# Ignore "ignore" dir
+ignore
+
 # Ignore pyenv artifact
 .python-version
 

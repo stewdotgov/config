@@ -38,11 +38,16 @@ Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
 Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
 Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
                                             " .vimrc by default)
+                                            "
 Plugin 'dracula/vim'
 ", { 'name': 'dracula' } " Dracula theme
 Plugin 'vim-airline/vim-airline'            " Provide a status line
 Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
 
+" Disabling vim-markdown cuz it seems clunky and slow and I don't really need
+" that badly.
+"Plugin 'godlygeek/tabular'                  " Required for vim-markdown plugin
+"Plugin 'plasticboy/vim-markdown'            " Add nice features for md files
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.

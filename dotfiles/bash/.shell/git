@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+if $SHELL_CONFIG_VERBOSE; then echo "Configure shell for git"; fi;
+
+
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+	complete -o default -o nospace -F _git g;
+fi;
+
+
+# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+if [ -f "$HOME/.git-completion.bash" ]; then
+    source "$HOME/.git-completion.bash"
+fi;
+
+
+# https://github.com/magicmonty/bash-git-prompt
+if [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
+    # source bash-git-prompt from a Git repository
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source ~/.bash-git-prompt/gitprompt.sh
+fi;

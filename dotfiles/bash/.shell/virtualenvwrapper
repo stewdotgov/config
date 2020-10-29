@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+if $SHELL_CONFIG_VERBOSE; then echo "Configure shell for virtualenvwrapper"; fi;
+
+# export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    if [ -f /usr/local/bin/python3 ]; then
+        export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+        export VIRTUALENV_PYTHON="/usr/local/bin/python3"
+        export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv-3.5"
+    fi
+    export VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
+    export WORKON_HOME="${HOME}/.envs"
+    mkdir -p $WORKON_HOME
+    source "$VIRTUALENVWRAPPER"
+fi
+

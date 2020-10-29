@@ -2,7 +2,7 @@
 #
 # shellcheck disable=SC1090
 #
-# This file is executed for interactive, non-login shells, while 
+# This file is executed for interactive, non-login shells, while
 # .bash_profile is executed for login shells.
 #
 # If I want something to happen for any interactive shells, I will put
@@ -10,8 +10,8 @@
 #
 # If I want something to happen for all login shells, I will put it in
 # .profile, unless it is bash-specific.
-# 
-# See also: 
+#
+# See also:
 #
 #   http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
 
@@ -23,11 +23,25 @@
 # Add ~/.local/bin to PATH
 export PATH=$HOME/.local/bin:$PATH
 
-# Load the shell dotfiles, and then some:
-for f in "$HOME/"{.aliases,.usnews}; do
+export SHELL_CONFIG_VERBOSE=true
+
+# Shell configuration for specific software or environements is factored out
+# into separate config files. Which ones get executed can then be customized
+# here according to the environment we're running in:
+for f in "$HOME/.shell/"{aliases,git,pyenv,virtualenvwrapper}; do
 	[ -r "$f" ] && [ -f "$f" ] && source "$f";
 done;
 unset f;
+
+# Set the terminal colors appropriately, see:
+# https://superuser.com/questions/431922/tmux-and-screen-256-term-not
+if [[ $SSH_TTY ]]
+then
+    TERM=xterm-color
+else
+    TERM=xterm-256color
+fi
+export TERM
 
 # Enable gnome terminal to understand UTF-8
 export LANG=en_US.UTF-8
@@ -94,11 +108,6 @@ elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-	complete -o default -o nospace -F _git g;
-fi;
-
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
@@ -138,26 +147,6 @@ for key in "${HOME}/.ssh/id_rsa."{usn,github.primordialstew}; do
 done;
 unset key;
 
-# export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
-if [ -f /usr/local/bin/python3 ]; then
-    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
-    export VIRTUALENV_PYTHON="/usr/local/bin/python3"
-    export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv-3.5"
-fi
-export VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
-
-
-export WORKON_HOME="${HOME}/.envs"
-mkdir -p $WORKON_HOME
-source "$VIRTUALENVWRAPPER"
-
-# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
-source "$HOME/.git-completion.bash"
-
-# source bash-git-prompt from a Git repository
-# https://github.com/magicmonty/bash-git-prompt
-GIT_PROMPT_ONLY_IN_REPO=1
-source ~/.bash-git-prompt/gitprompt.sh
 
 # Exercism
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
@@ -168,7 +157,7 @@ fi
 # on Mac OS X, which installs traditional gnu core utilities:
 # ==> Caveats
 # All commands have been installed with the prefix 'g'.
-# 
+#
 # If you really need to use these commands with their normal names, you
 # can add a "gnubin" directory to your PATH from your bashrc like:
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -181,33 +170,6 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend $PATH.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for f in "$HOME/"{.aliases,.usnews}; do
-	[ -r "$f" ] && [ -f "$f" ] && source "$f";
-done;
-unset f;
-
-
-# Add pyenv to PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-# [on Mac OS] pyenv fails with:
-#   zipimport.ZipImportError: can't decompress data; zlib not available
-# So I brew installed zlib. Brew says this:
-# For compilers to find zlib you may need to set:
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-## For pkg-config to find zlib you may need to set:
-#export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
-
-
-# Initialize pyenv, see: https://github.com/pyenv/pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

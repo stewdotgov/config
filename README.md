@@ -3,9 +3,9 @@ Brian Stewart
 
 
 ## Dotfiles
-Install using GNU stow, e.g.
+Install using GNU stow, like so:
 
-    stow -d dotfiles/ -t ~ screen
+`stow -d dotfiles/ -t ~ screen`
 
 
 ## Non-Dotfiles
@@ -25,3 +25,9 @@ directory.
 To init a submodule:
 
 `git submodule update --init --depth 1 non-dotfiles/osx/iterm_colors/`
+
+To update a submodule to the current version:
+
+`git submodule update --remote --merge`
+
+(See: https://stackoverflow.com/questions/8191299/update-a-submodule)

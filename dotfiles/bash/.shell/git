@@ -15,10 +15,9 @@ fi;
 
 
 # https://github.com/magicmonty/bash-git-prompt
-if [ -f ~/.bash-git-prompt/gitprompt.sh ]; then
-    # source bash-git-prompt from a Git repository
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
-    source ~/.bash-git-prompt/gitprompt.sh;
+    source $HOME/.bash-git-prompt/gitprompt.sh
 else
 # https://gist.github.com/michaelneu/943693f46f7aa249fad2e6841cd918d5
     COLOR_GIT_CLEAN='\[\033[1;30m\]'

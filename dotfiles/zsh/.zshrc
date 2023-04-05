@@ -29,8 +29,10 @@ fi
 # being killed overnight
 export TMOUT=
 
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
+# Append to the history file immediately, don't wait until session ends
+setopt INC_APPEND_HISTORY
+# Append to the history file only once session ends
+#setopt APPEND_HISTORY
 
 # Don't put duplicate lines or lines starting with space in the history
 #HISTCONTROL=ignoreboth

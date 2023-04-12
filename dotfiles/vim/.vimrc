@@ -107,6 +107,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_python_exec = 'python'
 let g:syntastic_python_pylint_exe = 'python -m flake8'
+let g:syntastic_python_flake8_config_file='.flake8'
 
 " ============
 " Vim settings
@@ -133,6 +134,7 @@ set shiftround      " round indent to multiple of 'shiftwidth'
 
 " Use 2 spaces for indentation in yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType sql setlocal shiftwidth=2 tabstop=2 expandtab
 
 " ------------
 " Code hygeine

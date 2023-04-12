@@ -40,3 +40,7 @@ setopt INC_APPEND_HISTORY
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=3000
 HISTFILESIZE=10000
+
+
+# Custom function that will give the absolute path given a relative path
+function realpath { echo $(cd $(dirname $1); pwd)/$(basename $1); }

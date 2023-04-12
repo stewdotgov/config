@@ -1,6 +1,7 @@
 # Repo-specific ignores
 # ---------------------
 dotfiles/ipython/.ipython/profile_default/history.sqlite
+dotfiles/vim/.vim/bundle/
 
 # Generic ignores
 # ---------------

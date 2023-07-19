@@ -9,4 +9,4 @@
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule "dotfiles/zsh/.zsh-git-prompt"]
 	path = dotfiles/zsh/.zsh-git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt.git
+	url = https://github.com/zsh-git-prompt/zsh-git-prompt.git

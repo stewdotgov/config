@@ -1,6 +1,6 @@
 " .vimrc - A Vim configuration file
 " Maintainer:   Brian Stewart <https://github.com/primordialstew>
-" Version:      0.1
+" Version:      0.2
 
 " ====================
 " Vundle configuration
@@ -15,98 +15,111 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+try
+  " Check if Vundle is installed
+  if !isdirectory(expand('~') . '/.vim/bundle/Vundle.vim')
+    echo "Vundle not installed, attempting install..."
+    !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  endif
+  if isdirectory(expand('~') . '/.vim/bundle/Vundle.vim')
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
 
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-call vundle#begin('~/.vundle/')
+    "call vundle#begin()
+    " alternatively, pass a path where Vundle should install plugins
+    "call vundle#begin('~/some/path/here')
+    call vundle#begin('~/.vundle/')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'                  " Manage vim plugins
-Plugin 'altercation/vim-colors-solarized'   " Eye-friendly colors
-Plugin 'editorconfig/editorconfig-vim'      " Support .editorconfig files
-Plugin 'elzr/vim-json'                      " JSON syntax & highlighting
-Plugin 'FooSoft/vim-argwrap'                " Toggle argument wrapping
-Plugin 'hynek/vim-python-pep8-indent'       " PEP8-compliant autoindent
-Plugin 'scrooloose/nerdtree'                " Fancy file tree explorer
-Plugin 'scrooloose/syntastic'               " Syntax checking
-Plugin 'tpope/vim-repeat'                   " Make . work with plugin maps
-Plugin 'tpope/vim-surround'                 " Easily edit parens, XML tags, etc
-Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
-Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
-Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
-                                            " .vimrc by default)
-                                            "
-Plugin 'dracula/vim'
-", { 'name': 'dracula' } " Dracula theme
-Plugin 'vim-airline/vim-airline'            " Provide a status line
-Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
+    " let Vundle manage Vundle, required
+    Plugin 'gmarik/Vundle.vim'                  " Manage vim plugins
+    Plugin 'altercation/vim-colors-solarized'   " Eye-friendly colors
+    Plugin 'editorconfig/editorconfig-vim'      " Support .editorconfig files
+    Plugin 'elzr/vim-json'                      " JSON syntax & highlighting
+    Plugin 'FooSoft/vim-argwrap'                " Toggle argument wrapping
+    Plugin 'hynek/vim-python-pep8-indent'       " PEP8-compliant autoindent
+    Plugin 'scrooloose/nerdtree'                " Fancy file tree explorer
+    Plugin 'scrooloose/syntastic'               " Syntax checking
+    Plugin 'tpope/vim-repeat'                   " Make . work with plugin maps
+    Plugin 'tpope/vim-surround'                 " Easily edit parens, XML tags, etc
+    Plugin 'tpope/vim-fugitive'                 " Use git from within Vim
+    Plugin 'tpope/vim-jdaddy'                   " JSON manipulation
+    Plugin 'tpope/vim-sensible'                 " Nice Vim settings (applied after
+                                                " .vimrc by default)
+                                                "
+    Plugin 'dracula/vim'
+    ", { 'name': 'dracula' } " Dracula theme
+    Plugin 'vim-airline/vim-airline'            " Provide a status line
+    Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
 
-" Disabling vim-markdown cuz it seems clunky and slow and I don't really need
-" that badly.
-"Plugin 'godlygeek/tabular'                  " Required for vim-markdown plugin
-"Plugin 'plasticboy/vim-markdown'            " Add nice features for md files
+    " Disabling vim-markdown cuz it seems clunky and slow and I don't really need
+    " that badly.
+    "Plugin 'godlygeek/tabular'                  " Required for vim-markdown plugin
+    "Plugin 'plasticboy/vim-markdown'            " Add nice features for md files
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+    " The following are examples of different formats supported.
+    " Keep Plugin commands between vundle#begin/end.
+    " plugin on GitHub repo
+    " plugin from http://vim-scripts.org/vim/scripts.html
+    " Plugin 'L9'
+    " Git plugin not hosted on GitHub
+    " Plugin 'git://git.wincent.com/command-t.git'
+    " git repos on your local machine (i.e. when working on your own plugin)
+    " Plugin 'file:///home/gmarik/path/to/plugin'
+    " The sparkup vim script is in a subdirectory of this repo called vim.
+    " Pass the path to set the runtimepath properly.
+    " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+    " Avoid a name conflict with L9
+    " Plugin 'user/L9', {'name': 'newL9'}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+    " All of your Plugins must be added before the following line
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+    " To ignore plugin indent changes, instead use:
+    "filetype plugin on
 
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
+    " Brief help
+    " :PluginList          - list configured plugins
+    " :PluginInstall(!)    - install (update) plugins
+    " :PluginSearch(!) foo - search (or refresh cache first) for foo
+    " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+    "
+    " see :h vundle for more details or wiki for FAQ
 
 
-" =============================
-" Plugin-specific configuration
-" =============================
+    " =============================
+    " Plugin-specific configuration
+    " =============================
 
-" --------
-" NERDTree
-" --------
-let NERDTreeIgnore=['\.pyc$']   " don't show these files in NERDTree
-" toggle NERDTree explorer
-nnoremap <silent> <c-6> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize=17
+    " --------
+    " NERDTree
+    " --------
+    let NERDTreeIgnore=['\.pyc$']   " don't show these files in NERDTree
+    " toggle NERDTree explorer
+    nnoremap <silent> <c-6> :NERDTreeToggle<CR>
+    let g:NERDTreeWinSize=17
 
-" ---------
-" Syntastic
-" ---------
-" recommended beginner settings for Syntastic,
-" from https://github.com/scrooloose/syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+    " ---------
+    " Syntastic
+    " ---------
+    " recommended beginner settings for Syntastic,
+    " from https://github.com/scrooloose/syntastic
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_python_python_exec = 'python'
-let g:syntastic_python_pylint_exe = 'python -m flake8'
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_python_checkers=['flake8']
+    " let g:syntastic_python_python_exec = 'python'
+    let g:syntastic_python_pylint_exe = 'python -m flake8'
+  endif
+catch /^Vim\%((\a\+)\)\=:E[0-9]\+:\(.*\)/
+  " Catch and echo the exception message
+  echo v:exception
+endtry
+
 
 " ============
 " Vim settings
@@ -133,6 +146,15 @@ set shiftround      " round indent to multiple of 'shiftwidth'
 
 " Use 2 spaces for indentation in yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Use 2 spaces for indentation in vim files (including .vimrc)
+autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
+
+" Use 2 spaces for indentation in shell scripts
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 expandtab
+
+" Use 4 spaces for indentation in Python files
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 expandtab
 
 " ------------
 " Code hygeine

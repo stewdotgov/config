@@ -18,7 +18,7 @@ ZSH_GIT_PROMPT_SCRIPT="$(readlink -f ~/.zsh-git-prompt/zshrc.sh)"
 if [ -e $ZSH_GIT_PROMPT_SCRIPT ]; then
   source $ZSH_GIT_PROMPT_SCRIPT
   # Git prompt for use with zsh-git-prompt
-  PROMPT='%B%m%~%b$(git_super_status) %# '
+  PROMPT='%B%m%~%b $(git_super_status) %# '
 else
   echo "zsh-git-prompt not found"
 fi

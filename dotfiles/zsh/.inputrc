@@ -1,7 +1,10 @@
 # Respect default shortcuts.
 $include /etc/inputrc
 
-## arrow up
+# Use vi keybindings in other applications (e.g. psql):
+set editing-mode vi
+set keymap vi-command
+
+# Navigate command history using up/down arrow:
 "\e[A": history-search-backward
-## arrow down
-"\e[B": history-search-forward 
+"\e[B": history-search-forward

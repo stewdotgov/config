@@ -29,23 +29,69 @@ fi
 
 
 # Run MacOS specific commands
-if [ "$os_name" = "Darwin" ]; then
+if [[ $(uname) == "Darwin" ]]; then
+
   # Running on MacOS
+
+  # Homebrew
+  # ========
+  # Add brew package install dir to PATH
+  export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+
+  # Chrome
+  # ======
   # Disable two-finger swipe gesture for going back/forward in Chrome history
   defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
-  # Postgres configuration (brew installed):
-  # If you need to have postgresql@15 first in your PATH, run:
-  echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+  # Postgres
+  # ========
+  # Put postgresql@15 first in path (is this needed?)
+  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
   # For compilers to find postgresql@15 you may need to set:
   export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
   # For pkg-config to find postgresql@15 you may need to set:
   export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@15/lib/pkgconfig"
-else
-  # Not running on MacOS
-fi
 
+  # Conda (Miniforge)
+  # =================
+
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/Users/stewartbr/bin/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/Users/stewartbr/bin/miniforge3/etc/profile.d/conda.sh" ]; then
+          . "/Users/stewartbr/bin/miniforge3/etc/profile.d/conda.sh"
+      else
+          export PATH="/Users/stewartbr/bin/miniforge3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+
+  if [ -f "/Users/stewartbr/bin/miniforge3/etc/profile.d/mamba.sh" ]; then
+      . "/Users/stewartbr/bin/miniforge3/etc/profile.d/mamba.sh"
+  fi
+  # <<< conda initialize <<<
+
+  # If you'd prefer that conda's base environment not be activated on startup,
+  # set the auto_activate_base parameter to false:
+  conda config --set auto_activate_base false
+
+  # ls
+  # ==
+  # Set ls colors
+  export LSCOLOR='exfxcxdxbxegedabagacad'
+  # Always colorize ls output
+  alias ls='ls -G'
+
+elif [[ $(uname) == "Linux" ]]; then
+  # Linux-specific color settings
+  export LSCOLOR='exfxcxdxbxegedabagacad'
+  export LS_COLORS='di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
+  alias ls='ls --color=auto'
+fi
 
 # Configure Pyenv
 #

@@ -50,6 +50,7 @@ try
     ", { 'name': 'dracula' } " Dracula theme
     Plugin 'vim-airline/vim-airline'            " Provide a status line
     Plugin 'vim-airline/vim-airline-themes'     " Theme vim-airline status line
+    Plugin 'psf/black'                          " Black, Python auto-formatter
 
     " Disabling vim-markdown cuz it seems clunky and slow and I don't really need
     " that badly.
